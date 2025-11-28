@@ -12,15 +12,15 @@ export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
   ({ variant = 'text', count = 1, width, height, className, ...props }, ref) => {
     const variantClasses = {
       text: 'rounded-sm h-4',
-      circle: 'rounded-full',
-      rect: 'rounded-brutalist',
+      circle: 'rounded-full border-3 border-primary',
+      rect: 'rounded-brutalist border-3 border-primary',
     };
 
     const skeletons = Array.from({ length: count }).map((_, i) => (
       <div
-        key={i}
+        key={`skeleton-${i}-${variant}`}
         className={cn(
-          'bg-gray-300 animate-pulse',
+          'bg-accent animate-pulse',
           variantClasses[variant],
           variant === 'circle' && (width || 'w-12'),
           variant === 'circle' && (height || 'h-12'),

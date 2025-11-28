@@ -1,9 +1,10 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
 import { SuiClientProvider, WalletProvider } from '@mysten/dapp-kit';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { networkConfig } from './config/sui';
-import App from './App';
+import { router } from './config/routes';
 import '@mysten/dapp-kit/dist/index.css';
 import './index.css';
 
@@ -32,8 +33,8 @@ createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <SuiClientProvider networks={networkConfig} defaultNetwork="testnet">
-        <WalletProvider autoConnect>
-          <App />
+        <WalletProvider autoConnect={false}>
+          <RouterProvider router={router} />
         </WalletProvider>
       </SuiClientProvider>
     </QueryClientProvider>

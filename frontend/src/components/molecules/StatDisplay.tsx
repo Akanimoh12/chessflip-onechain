@@ -8,7 +8,7 @@ interface StatDisplayProps extends HTMLAttributes<HTMLDivElement> {
   value: string | number;
   badge?: {
     text: string;
-    variant?: 'default' | 'success' | 'warning' | 'error' | 'info';
+    variant?: 'default' | 'primary' | 'secondary' | 'brand' | 'accent';
   };
 }
 
@@ -17,10 +17,10 @@ export const StatDisplay = forwardRef<HTMLDivElement, StatDisplayProps>(
     return (
       <Card ref={ref} variant="flat" className={cn('text-center', className)} {...props}>
         <CardHeader>
-          <CardTitle className="text-sm font-medium text-gray-600">{label}</CardTitle>
+          <CardTitle className="text-sm font-medium text-primary">{label}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2">
-          <div className="text-3xl font-bold">{value}</div>
+          <div className="text-3xl font-bold text-primary">{value}</div>
           {badge && <Badge variant={badge.variant || 'default'}>{badge.text}</Badge>}
         </CardContent>
       </Card>

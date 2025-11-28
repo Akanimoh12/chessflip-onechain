@@ -1,39 +1,33 @@
-import { type HTMLAttributes, forwardRef } from 'react';
+import { type InputHTMLAttributes, forwardRef } from 'react';
 import { cn } from '@/utils/cn';
 
-interface InputProps extends HTMLAttributes<HTMLInputElement> {
-  label?: string;
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;
-  type?: string;
-  placeholder?: string;
-  disabled?: boolean;
-  value?: string | number;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  label?: string;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, className, ...props }, ref) => {
+  ({ className, error, label, ...props }, ref) => {
     return (
-      <div className="flex flex-col gap-xs">
-        {label && <label className="text-body font-medium text-primary">{label}</label>}
+      <div className="w-full">
+        {label && (
+          <label className="block mb-sm text-sm font-medium text-primary">
+            {label}
+          </label>
+        )}
         <input
           ref={ref}
           className={cn(
-            'px-md py-sm border-3 border-primary bg-secondary text-primary rounded-brutalist',
-            'placeholder:text-primary/40 focus:outline-none focus:shadow-brutalist transition-all duration-150',
-            'disabled:opacity-50 disabled:cursor-not-allowed',
-            error && 'border-red-600 bg-red-50',
+            'w-full px-md py-sm border-3 border-primary rounded-brutalist bg-secondary transition-all duration-150',
+            'placeholder:text-primary/50',
+            'disabled:bg-accent disabled:cursor-not-allowed disabled:text-primary/50',
+            'focus:outline-none',
+            error && 'border-brand',
             className
           )}
-          aria-invalid={!!error}
-          aria-describedby={error ? 'error' : undefined}
           {...props}
         />
-        {error && (
-          <span id="error" className="text-body-sm text-red-600">
-            {error}
-          </span>
-        )}
+        {error && <p className="mt-sm text-sm text-brand">{error}</p>}
       </div>
     );
   }

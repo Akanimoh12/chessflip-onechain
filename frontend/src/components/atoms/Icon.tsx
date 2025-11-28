@@ -5,7 +5,7 @@ import { cn } from '@/utils/cn';
 interface IconProps extends LucideProps {
   icon: LucideIcon;
   size?: 'sm' | 'md' | 'lg' | 'xl';
-  variant?: 'default' | 'primary' | 'secondary' | 'destructive';
+  variant?: 'default' | 'primary' | 'secondary' | 'brand';
 }
 
 const sizeMap = {
@@ -19,7 +19,7 @@ const variantMap = {
   default: 'text-primary',
   primary: 'text-primary',
   secondary: 'text-secondary',
-  destructive: 'text-red-600',
+  brand: 'text-brand',
 };
 
 export const Icon = forwardRef<SVGSVGElement, IconProps>(

@@ -20,17 +20,17 @@ export const ProfileCard = forwardRef<HTMLDivElement, ProfileCardProps>(
         <CardHeader className="flex flex-col items-center space-y-4">
           <Avatar src={avatarSrc} alt={name} size="lg" fallbackText={name} />
           <div className="text-center">
-            <h3 className="text-lg font-bold">{name}</h3>
-            <p className="text-sm text-gray-600">{role}</p>
+            <h3 className="text-lg font-bold text-primary">{name}</h3>
+            <p className="text-sm text-primary/70">{role}</p>
           </div>
         </CardHeader>
         {stats && stats.length > 0 && (
           <CardContent>
             <div className="grid grid-cols-2 gap-4 pt-4 border-t-3 border-primary">
-              {stats.map((stat, idx) => (
-                <div key={idx} className="text-center">
-                  <p className="text-xs text-gray-600">{stat.label}</p>
-                  <p className="text-lg font-bold">{stat.value}</p>
+              {stats.map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <p className="text-xs text-primary/70">{stat.label}</p>
+                  <p className="text-lg font-bold text-primary">{stat.value}</p>
                 </div>
               ))}
             </div>

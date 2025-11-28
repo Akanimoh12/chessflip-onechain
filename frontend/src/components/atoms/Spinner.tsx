@@ -3,7 +3,7 @@ import { cn } from '@/utils/cn';
 
 interface SpinnerProps extends HTMLAttributes<HTMLDivElement> {
   size?: 'sm' | 'md' | 'lg';
-  variant?: 'default' | 'primary' | 'secondary';
+  variant?: 'default' | 'primary' | 'brand';
 }
 
 const sizes = {
@@ -13,9 +13,9 @@ const sizes = {
 };
 
 const variants = {
-  default: 'border-primary border-t-secondary',
-  primary: 'border-primary border-t-secondary',
-  secondary: 'border-secondary border-t-primary',
+  default: 'border-primary border-t-brand',
+  primary: 'border-primary border-t-brand',
+  brand: 'border-brand border-t-primary',
 };
 
 export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(

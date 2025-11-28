@@ -49,8 +49,8 @@ export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(({ classNa
 CardHeader.displayName = 'CardHeader';
 
 interface CardTitleProps extends HTMLAttributes<HTMLHeadingElement> {}
-export const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(({ className, ...props }, ref) => (
-  <h3 ref={ref} className={cn('text-h4 font-bold text-primary', className)} {...props} />
+export const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(({ className, children, ...props }, ref) => (
+  <h3 ref={ref} className={cn('text-h4 font-bold text-primary', className)} {...props}>{children}</h3>
 ));
 CardTitle.displayName = 'CardTitle';
 

@@ -34,9 +34,9 @@ export { networkConfig, useNetworkVariable };
 
 // Game constants
 export const GAME_CONFIG = {
-  PULSE_VALUE: parseInt(import.meta.env.VITE_PULSE_VALUE || '100'),
-  PULSE_COOLDOWN_MS: parseInt(import.meta.env.VITE_PULSE_COOLDOWN_MS || '1000'),
-  YIELD_RATE: parseFloat(import.meta.env.VITE_YIELD_RATE || '0.0001'),
+  PULSE_VALUE: Number.parseInt(import.meta.env.VITE_PULSE_VALUE || '100'),
+  PULSE_COOLDOWN_MS: Number.parseInt(import.meta.env.VITE_PULSE_COOLDOWN_MS || '1000'),
+  YIELD_RATE: Number.parseFloat(import.meta.env.VITE_YIELD_RATE || '0.0001'),
 };
 
 // Module names for contract interactions
