@@ -1,19 +1,12 @@
 import { useCurrentAccount } from '@mysten/dapp-kit';
-import { Navbar } from './components/Navbar';
-import { LandingPage } from './components/LandingPage';
+import { LandingPage } from '@/pages/LandingPage';
 
 function App() {
   const account = useCurrentAccount();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-950 to-gray-900 text-white">
-      {/* Navigation */}
-      <Navbar />
-
-      {/* Main Content */}
-      {!account ? (
-        <LandingPage />
-      ) : (
+    <>
+      {account ? (
         <main className="container mx-auto px-6 py-12">
           <div className="flex items-center justify-center min-h-[600px]">
             <div className="text-center max-w-2xl">
@@ -33,8 +26,10 @@ function App() {
             </div>
           </div>
         </main>
+      ) : (
+        <LandingPage />
       )}
-    </div>
+    </>
   );
 }
 
