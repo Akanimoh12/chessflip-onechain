@@ -1,0 +1,8 @@
+[package]
+name = "chessflip"
+version = "0.0.1"
+
+[dependencies]
+
+[addresses]
+chessflip = "0x0"

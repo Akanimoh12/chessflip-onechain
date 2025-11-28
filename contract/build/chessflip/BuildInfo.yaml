@@ -1,0 +1,20 @@
+---
+compiled_package_info:
+  package_name: chessflip
+  address_alias_instantiation:
+    chessflip: "00000000000000000000000000000000"
+  source_digest: 74453F7C7E795A9F1948DC5B7207C18377C312178580697C93A1E209DCBEBDD5
+  build_flags:
+    dev_mode: false
+    test_mode: false
+    generate_docs: false
+    generate_abis: false
+    install_dir: ~
+    force_recompilation: false
+    lock_file: ~
+    additional_named_addresses: {}
+    architecture: ~
+    fetch_deps_only: false
+    skip_fetch_latest_git_deps: false
+    bytecode_version: ~
+dependencies: []
