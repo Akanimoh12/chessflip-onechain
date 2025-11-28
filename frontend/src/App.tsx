@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useCurrentAccount } from '@mysten/dapp-kit';
+import { Navbar } from './components/Navbar';
+import { LandingPage } from './components/LandingPage';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const account = useCurrentAccount();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="min-h-screen bg-gradient-to-b from-gray-950 to-gray-900 text-white">
+      {/* Navigation */}
+      <Navbar />
+
+      {/* Main Content */}
+      {!account ? (
+        <LandingPage />
+      ) : (
+        <main className="container mx-auto px-6 py-12">
+          <div className="flex items-center justify-center min-h-[600px]">
+            <div className="text-center max-w-2xl">
+              <div className="text-8xl mb-6">🎮</div>
+              <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
+                Game Interface Coming Soon
+              </h2>
+              <p className="text-xl text-gray-300 font-mono mb-8">
+                Wallet connected! ✓
+              </p>
+              <div className="bg-gray-800 border border-blue-500/30 rounded-lg p-6 max-w-md mx-auto">
+                <p className="text-sm text-gray-400 font-mono mb-2">Wallet Address:</p>
+                <p className="text-blue-400 font-mono break-all text-xs">
+                  {account?.address}
+                </p>
+              </div>
+            </div>
+          </div>
+        </main>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
+
